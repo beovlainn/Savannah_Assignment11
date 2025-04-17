@@ -8,3 +8,19 @@
 #Brief Description of the assignment:   Using api and python to clean up a csv file and create two new ones 
 #Brief Description of what this module does.: Furthering our knowledge of the python language with api usage and csv experience 
 #Citations: https://chatgpt.com
+
+import os
+from dataProcessing.cleaner import *
+
+def main():
+    input_file = os.path.join("data", "fuelPurchaseData.csv")
+    cleaned_file = os.path.join("Data", "cleanedData.csv")
+    anomalies_file = os.path.join("Data", "dataAnomalies.csv")
+
+    cleaner = DataCleaner(input_file, cleaned_file, anomalies_file)
+    cleaner.clean_data()
+    print("Data cleaning complete. Files saved in /Data folder.")
+    
+
+if __name__ == "__main__":
+    main()
